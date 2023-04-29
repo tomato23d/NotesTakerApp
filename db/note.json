@@ -1,7 +1,17 @@
 [
-    {
+    {   "type":"Shop",
         "title":"Test Title",
         "text":"Test text",
         "note_id":"Test id"
-    }
+    },
+    {   "type":"Drop",
+        "title":"New List",
+        "text":"Buy milk",
+        "note_id":"m01"
+    },
+    {   "type":"Shop",
+        "title":"New List",
+        "text":"Buy bread",
+        "note_id":"m02"
+}
 ]
