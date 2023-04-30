@@ -1,17 +1,17 @@
 [
     {   "type":"Shop",
-        "title":"Test Title",
-        "text":"Test text",
-        "note_id":"Test id"
-    },
-    {   "type":"Drop",
-        "title":"New List",
+        "title":"Buy stationery",
         "text":"Buy milk",
-        "note_id":"m01"
+        "note_id":"Test_01"
+    },
+    {   "type":"Fun",
+        "title":"Invite accountant for coffee",
+        "text":"Buy tickets",
+        "note_id":"Test_02"
     },
     {   "type":"Shop",
-        "title":"New List",
+        "title":"Order new bin",
         "text":"Buy bread",
-        "note_id":"m02"
+        "note_id":"Test_03"
 }
 ]
