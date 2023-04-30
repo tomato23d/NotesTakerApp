@@ -37,7 +37,36 @@ app.get('/api/notes/:type', (req, res) => {
       }}
       return res.json(output);
     });
+//POST request to save a new note
+app.post('/api/notes',(req,res) => {
+    console.info(`${req.method} request received to add a review`);
+    const{title, text} = req.body;
 
+    if (title && text){
+        const newNote = {
+            type: "Shop",
+            title,
+            text,
+            note_id: uuid(),
+        };
+    
+    const noteString = JSON.stringify(newNote);
+    
+    fs.appendFile('./db/note.json', noteString, (err)=>
+    {err ? console.error(err): console.log("success")});
+
+    const response = {
+        status: 'success',
+        body: newNote,
+    };
+    
+    console.log(response);
+    res.status(201).json(response);
+    }
+    else{
+        res.status(500).json('Error in posting review');
+    }
+});
 
 
 app.listen(PORT, () =>

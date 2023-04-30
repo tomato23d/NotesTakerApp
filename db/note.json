@@ -13,5 +13,7 @@
         "title":"Order new bin",
         "text":"Buy bread",
         "note_id":"Test_03"
-}
-]
+},
+
+{"type":"Shop","title":"hello my note",
+"text":"this is note text","note_id":"8d6a"}]{"type":"Shop","title":"my note","text":"hello notes","note_id":"d987"}{"type":"Shop","title":"stocktake","text":"count cups and spoons","note_id":"deb9"}
