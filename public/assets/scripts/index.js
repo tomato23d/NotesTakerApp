@@ -52,7 +52,7 @@ function renderMyNotes(note){
 show(saveNoteBtn);
 
 
-getNotes().then((response)=> response.forEach((item) => renderMyNotes(item)))
+getNotes().then((response)=> response.forEach((item) => renderMyNotes(item)));
 
 
 const handleNoteSave = () => {
@@ -67,6 +67,7 @@ const handleNoteSave = () => {
     })
     localStorage.setItem(timeStamp, JSON.stringify(newNote));
 
+    getNotes().then((response)=> response.forEach((item) => renderMyNotes(item)));
       //getAndRenderNotes();
       //renderActiveNote();
     }
