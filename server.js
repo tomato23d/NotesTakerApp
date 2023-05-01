@@ -100,7 +100,7 @@ app.post('/api/notes',(req,res) => {
       else {
             const parsedData = JSON.parse(data);
             //parsedData.push(content);
-            parsedData.push(noteString);
+            parsedData.push(newNote);
               
                               fs.writeFile('./db/mynote.json', JSON.stringify(parsedData), (err) =>
                               err ? console.error(err) : console.info("success read and write"));
