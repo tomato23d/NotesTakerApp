@@ -6,11 +6,10 @@ console.log(timeStamp);
         noteTitle = document.querySelector('.note-title');
         noteText = document.querySelector('.note-textarea');
         saveNoteBtn = document.querySelector('.save-note');
-        mySaveBtn = document.getElementById('saveBtn');
-        myNewBtn = document.getElementById('newBtn');
         newNoteBtn = document.querySelector('.new-note');
-        myList = document.querySelectorAll('.list-group');
-       myCards = document.getElementById('card1');
+        //myList = document.querySelectorAll('.list-group');
+        //myList = document.getElementById('list1');
+        myCards = document.getElementById('card1');
     
     //  };
 
@@ -41,18 +40,29 @@ const getNotes = async () => {
     body: JSON.stringify(note),
   });
 
+function clearDiary(){myCards.innerHTML = " "};
+
+myNotes = [ ];
+myNotesId = [ ];
 
 function renderMyNotes(note){
-    const linote = document.createElement('li');
-    linote.innerText = note.title;
-    //console.log(linote);
-    myCards.appendChild(linote);
+    
+    const pnote = document.createElement('p');
+    pnote.textContent = note.title;
+    pnote.id = note.note_id;
+    //console.log(pnote);
+    myCards.appendChild(pnote);
+    myNotes.push(note);
+    myNotesId.push(note.note_id);
 };
+
+    console.log(myNotes);
+    console.log(myNotesId);
 
 show(saveNoteBtn);
 
 
-getNotes().then((response)=> response.forEach((item) => renderMyNotes(item)));
+getNotes().then((response) => response.forEach((item) => renderMyNotes(item)));
 
 
 const handleNoteSave = () => {
@@ -63,10 +73,11 @@ const handleNoteSave = () => {
   
     };
     saveNote(newNote).then((response) => {
-        alert(`Note is saved!`)
+        alert(`Note is saved!`);
     })
     localStorage.setItem(timeStamp, JSON.stringify(newNote));
 
+    clearDiary();
     getNotes().then((response)=> response.forEach((item) => renderMyNotes(item)));
       //getAndRenderNotes();
       //renderActiveNote();
@@ -74,9 +85,16 @@ const handleNoteSave = () => {
     //);
   //};
 
+function handleNoteSelect(event){
+    gotSelect = event.target.id;
+    console.log(this.childElementCount);
+    console.log(this.firstChild);
+}
+
+
 
 //if (window.location.pathname === '/notes') {
     saveNoteBtn.addEventListener('click', handleNoteSave);
-
+    myCards.addEventListener('click', handleNoteSelect);
 
 //};
